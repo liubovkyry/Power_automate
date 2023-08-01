@@ -111,13 +111,57 @@ Notice we get three input boxes, a Switch, Case, and Default. In the Switch box 
 
 I’m going to copy our email so we can use it again. Now let’s add a Condition Control in the same place. Notice that we also get three boxes but, in this case, we can do more inputs than a switch which was for a single input. We can still add our status value and what it is equal to, but we could also add multiple other conditions that must be met. When a condition is met, we travel down the Yes side of the condition. If the condition is not met, then we go down the No path. Let’s add our email as an action of the Yes path.
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/1ca8ed57-072d-4a52-bbc8-6b2fe62bb1c7)
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/21477b10-5551-45df-82a3-ff3f5d40d525)
 
 On our No path, we could add another condition control to split the status values even further. For example, let’s add a condition that still sends an email but only if it is not out of stock, and it is not in the status of “Available”. That way, we can send a different email to notify people that stock is low. We could go on doing this until we break down everything we need to accomplish. So, Condition Controls will help us to do multiple conditions.
 
 For the Do Until Control, we can use our same example, but you might see an issue. I would like to send a reminder to order an item when the Status is equal to “Out of Stock”.  Let’s put the Do Until into place and select our Status Value equal to Ordered. Now by itself, the do until creates some problems. First, it will continue to send emails or change things until we reach our condition or until it times out. The default time out is set at 1 hour.
 
 You can see that we would have to make some changes, or we would have this running for ever if we don’t be careful. We would most likely want to start with a scheduled cloud flow and run it every day or once a week. Then, we would have a conditional control that would include the Do Until control within it. Then we would not get into a loop that would drive others crazy or time out.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/8b54b7e8-cd12-4972-b7fa-66097370394f)
+
 
 Our next control is the Apply to each. Notice the lighter color of these two controls. That is an indicator that they should be in another control. Apply to Each will apply an action to a group of items. If I wanted to have all items in my inventory that were ordered changed to the status of “Available”, then I would need to do two things. First would be to add a condition control or switch. Since we are only looking for one item, I will use a switch control to look for those items that are equal to the status value of “Received”. Then I embed the Apply to each control to update the status value on just those that say” Received” to the status value of “Available”. It will continue to run until all items that were received are updated.
 ### Exploring Expressions
+
+ What is an Expression? An expression is a small code function that might help us to concatenate text, perform math functions, date functions, or logical functions against our data. When we talked about our conditions, we were looking for something to be equal to something else and we did that with just dropping down boxes and making choices. We can also write the expressions from scratch.
+ ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/54b49ab5-3ec3-4ca7-872a-d81b7b22b5f2)
+
+
+You can find expressions by going to any place in our flow and clicking to bring up the dynamic content. Dynamic content comes from the fields and properties of our data and is packaged for us. Right next to the Dynamic content tab is the Expression tab.
+
+There are endless ways to add expressions in advanced mode or basic mode. Let’s add an expression to our trigger to only trigger if the inventory status is equal to Reorder or Out of Stock. We click on our trigger menu, choose settings, and Add a Trigger Condition. Our condition is going to be an OR expression where either the status can equal Reorder, or Out of Stock. Our flow is going to run every time the SharePoint list is modified but the first step will be to validate this trigger condition. If neither of those statuses are there, the flow stops. 
+
+We could also change this by adding another expression where our Amount in Stock is less than, or equals the number 5.  
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/d73b956e-f26c-45c2-a7ff-69be69631922)
+
 ### Understanding Approvals
+Approval flows are a way to have one or more people approve content, documents, or maybe even calendar items like days off. We can have many cycles of approvals where one person approves one step, then the next person approves the next step and so on. Our ultimate goal is to automate the process of sending emails and documents back and forth and reducing time to results.
+
+One of the Common Starting Points as we learned earlier, is to start with a template. There is a specific category for Approvals so that is where we can find many premade approval flows.
+
+Here are some common components of approval flows. Of course, some trigger that starts the flow when a file is changed, created, or modified. An approval action. Emails to approve and to update the submitter of status. Updates to files like status changes, copy, move, attach can all be part of the approval. You will most likely see some of the other items we have covered like conditions, loops, and expressions. 
+
+The results may look something like this.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/300b1018-2687-4d97-9080-8e09405bf690)
+
+This is a flow that looks for a new file to appear in a document library. It then creates an approval for the first person to respond. It gives them information about what they are approving as well as a link to the item so they can review it. Once approved, we copy the file to another library for approved documents and send an email to the originator to let them know that it is being approved.
+
+This is an example of the email received by the approver. It has a button to approve which presents a comment section which could be used in an email. Once submitted, it sends another email with the results.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/d8a8cd31-7432-4ff6-b1a7-c7505b9dc65b)
+
+We could of course, make this much more complicated. Let’s look at an approval for an item created in OneDrive which interacts with email, Teams, and approvals.
+
+It starts with a trigger for a file being created, it creates a share link, then it gets my profile and holds that in memory so I can use it down further in the flow. 
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/461c7a4d-8db0-4cd1-a5bf-46006323f032)
+
+We then see our approval with all the options filled in. We then see something a little new in a parallel branch which lets two processes happen at the same time. Down the first branch, we find an Apply to Each loop that creates cards for Microsoft Teams. We then wait for the approval to happen.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/0a15ef48-c937-498e-bc7d-229c2c64bc35)
+
+Notice the condition that we learned about being used to find out if it was approved or rejected. Depending on the approval outcome, the user gets a note in Teams.
+
+Down the other branch is an error action that just looks like an email is being sent. This is really a special item that has been set to run after a failure. When we click on the ellipse’s menu, we can click on Configure Run After to see when the email is actually being sent. The next step just terminates the flow.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5c1604f2-a46d-49d9-bd9e-a152a4f6ab53)
+
+
