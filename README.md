@@ -76,6 +76,24 @@ If you want to have Power Automate do some of the work for you, pick a template 
 So, using templates can be very helpful in starting with Power Automate. Not only can you learn from them, but you can customize them as well. We saw how we could find templates through categories, searches, and sorting. We also saw that we could customize and repurpose those templates to meet our needs, then save them as our own.
 
 ### Power Automate Connectors
+You might notice that throughout Power Automate you will not only see Microsoft connections being made but you'll see connections to all sorts of different third-party vendors. Connectors make this possible by creating a link to that third-party provider of some service. When we want to connect two different things that don't speak the same language, we need some kind of connector in the middle and that's what Microsoft has built. There are hundreds of connectors built into Power Automate. At this time, there are close to 500 different connectors. 
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/a44e58c9-1790-4875-acc0-5a9e451e2a9f)
+
+
+Let’s talk a little about accounts you will need and pre-built content that comes with a connector
+
+Each one of these connectors helps us to actually make a connection between two different services. In some cases, you need to have an account with the service that you're connecting with, for instance in the case of Cognito forms, they offer a free membership where you can build simple forms.
+
+If I want to have somebody fill out a survey from Cognito, and have that information flow to a SharePoint list, then email someone, then I use a connector from Cognito forms, a connector from SharePoint, and I use a connector to Outlook. With the connector comes some prebuilt content so when I do link up with Cognito forms it already knows that it's going to go and find my forms and the fields of that form, with the type of data for each field. I then connect the form that I've created and pull different information out of it. This is why Power Automate is called a “no code, or low code solution”, because it does most of the work.
+
+Notice that some connectors have the word Premium under them. Premium connectors look like all the rest of the connectors and can do the same things as other connectors, but the difference is in the level of service, licensing, and price. So, I can link up my MailChimp account to pull new subscribers into SharePoint, but I need to put in credentials for MailChimp and be able to use their premium content which requires me to purchase more than their free account.
+
+I also need to have a proper license with Microsoft for Power Automate. Since licensing changes from time to time, please check your license to see if Premium accounts are included. When you see the item that says premium that means there's a charge on one end or the other, and, sometimes premium can mean that we need a higher license within Power Automate or other services.
+
+
+One note I would like to share is that there are connectors and there are connections. <b>Connectors</b> are what get two different services talking together, <b>connections</b> are the credentials that we use to connect with the different services. Connectors are found under the connectors link in the left-hand navigation. Connections are found underneath the data link in left-hand navigation. There at the bottom, you see my latest connection with Adobe.
+
+To recap our lecture, we learned that connectors connect at least two services together. We learned that you need to have an account for many of the connections. Connections come with pre-built content that helps us use a no-code approach. Those connectors marked as Premium, will need to have paid accounts, and licenses to work. And lastly, we learned that connectors and connections are different. Connectors connect items together, and connections are the credentials we need to connect our services to the connectors.
 ### Learning Loops and Conditions
 ### Exploring Expressions
 ### Understanding Approvals
