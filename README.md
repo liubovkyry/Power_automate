@@ -93,7 +93,31 @@ I also need to have a proper license with Microsoft for Power Automate. Since li
 
 One note I would like to share is that there are connectors and there are connections. <b>Connectors</b> are what get two different services talking together, <b>connections</b> are the credentials that we use to connect with the different services. Connectors are found under the connectors link in the left-hand navigation. Connections are found underneath the data link in left-hand navigation. There at the bottom, you see my latest connection with Adobe.
 
-To recap our lecture, we learned that connectors connect at least two services together. We learned that you need to have an account for many of the connections. Connections come with pre-built content that helps us use a no-code approach. Those connectors marked as Premium, will need to have paid accounts, and licenses to work. And lastly, we learned that connectors and connections are different. Connectors connect items together, and connections are the credentials we need to connect our services to the connectors.
+
+
 ### Learning Loops and Conditions
+Loops and conditions are helpful when our process flow is not just one straight line or argument. Loops help us to continue to process things until some condition is met. Conditions help us act on certain criteria or take action on other criteria.
+
+Loops can include counters that help them to start from a position and end when counters reach another position. When each loop happens, counters can be incremented. For example, retweet a message until the Retweet count reaches 10.
+
+ Loops can continually run without counters until a condition is met. For example, sending a reminder every day until the status reaches “Approved”. Let’s look at some ways to use conditionals and loops.
+
+Within Power Automate, we will start with a simple flow that emails someone when we have a change to an inventory list item. We add a new action between our list and the email, and we select Control. The loops and conditionals all fall within here. The first one of these we will look at is a Switch Control.
+
+Notice we get three input boxes, a Switch, Case, and Default. In the Switch box we are turning the switch on to watch our status value. When the status equals “Out of Stock”, then the next step runs.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/7f3f909a-2b3b-4ece-924c-dd6c14247d5d)
+
+ I am going to add an email action and then put it as our next action in the Case. This would send an alert email to someone. If status equals anything else, then it does nothing more. 
+
+I’m going to copy our email so we can use it again. Now let’s add a Condition Control in the same place. Notice that we also get three boxes but, in this case, we can do more inputs than a switch which was for a single input. We can still add our status value and what it is equal to, but we could also add multiple other conditions that must be met. When a condition is met, we travel down the Yes side of the condition. If the condition is not met, then we go down the No path. Let’s add our email as an action of the Yes path.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/1ca8ed57-072d-4a52-bbc8-6b2fe62bb1c7)
+
+On our No path, we could add another condition control to split the status values even further. For example, let’s add a condition that still sends an email but only if it is not out of stock, and it is not in the status of “Available”. That way, we can send a different email to notify people that stock is low. We could go on doing this until we break down everything we need to accomplish. So, Condition Controls will help us to do multiple conditions.
+
+For the Do Until Control, we can use our same example, but you might see an issue. I would like to send a reminder to order an item when the Status is equal to “Out of Stock”.  Let’s put the Do Until into place and select our Status Value equal to Ordered. Now by itself, the do until creates some problems. First, it will continue to send emails or change things until we reach our condition or until it times out. The default time out is set at 1 hour.
+
+You can see that we would have to make some changes, or we would have this running for ever if we don’t be careful. We would most likely want to start with a scheduled cloud flow and run it every day or once a week. Then, we would have a conditional control that would include the Do Until control within it. Then we would not get into a loop that would drive others crazy or time out.
+
+Our next control is the Apply to each. Notice the lighter color of these two controls. That is an indicator that they should be in another control. Apply to Each will apply an action to a group of items. If I wanted to have all items in my inventory that were ordered changed to the status of “Available”, then I would need to do two things. First would be to add a condition control or switch. Since we are only looking for one item, I will use a switch control to look for those items that are equal to the status value of “Received”. Then I embed the Apply to each control to update the status value on just those that say” Received” to the status value of “Available”. It will continue to run until all items that were received are updated.
 ### Exploring Expressions
 ### Understanding Approvals
