@@ -15,7 +15,18 @@ Name your export. Set time and frequency of exporting. Create.
 Next. Add a new step - we are looking for Poer BI here.
 Some options there work only for Premium Capacity, so we select <b>Run a query against a dataset</b>
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/d0430561-2d2a-4bd3-b75d-77a72972dab0)
-
+1 Defining which dataset we want to run a query against - selecting workspace, datset and query
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/57fd6347-1d92-47a2-ae0f-e76b524b0b38)
 
-
+```
+DEFINE
+VAR _table = SELECTCOLUMNS(
+'Orders Details',
+"Order ID",'Order Details'[order_id],
+"Order Created",'Order Details'[patient_created],
+"Product name", RELATED('Products'[ProductName]),
+"Category", RELATED('Categories'[CategoryName]),
+"Order Date?", RELATED('Delivery Details'[delivery_date])
+)
+EVALUATE _table
+```
