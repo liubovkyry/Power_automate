@@ -81,18 +81,63 @@ Our next step is to add a <b>condition control</b> which we worked with earlier 
 
 I then add an action to send an email with the subject of reorder items. In the body, using dynamic content, we say the following locations need manufacturers name and then model reordered. Underneath that I'm going to put the output from the Join command. Make sure you're using the right output and not using the one from the Compose like we did earlier.
 
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/4041be4f-2f00-40d8-9105-bcb962195112)
+
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/084e65db-4767-48e7-871e-07199a7d5df8)
+
+
 Now the way we've written this it would cause a loop that would continue because it would go an update an item to say reorder if the stock amount was under 5. Power Automate notices that something was modified when the flow changed the status, so it starts again. So, we're going to use another data operation to limit how the trigger will work. Remember from an earlier lecture we put a condition on the trigger. At that time, we used an expression and I told you that I would tell you later an easy way to get those expressions.
 
-We click on the menu for our trigger, and we go to settings. We then go down to the trigger conditions and click on add. Now you can type in an expression right here if you know how to do it. Let me show you how I find these expressions. Click on the + to add a new step and add the data operation of Filter Array. Using the Filter Array click on choose a value and put in our status value then click on is "not equal to” and enter in the word “Reorder”. Now here's where the magic happens just simply click on edit in advanced mode and copy the expression that you see there.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5d19747c-f769-407f-85a9-49d124cf0783)
 
-We go back into our trigger settings, and we paste that expression. Now this trigger will not fire if it finds that the status is already at reorder which will stop our loop from happening. You can now get rid of the Filter Array. We could also use the Filter Array somewhere down below if we wanted to filter out the output that we had from the Compose data operation where we wanted to just find the city of Tokyo for instance.
+
+We click on the menu for our trigger, and we go to settings. We then go down to the trigger conditions and click on add. Now you can type in an expression right here if you know how to do it. Let me show you how I find these expressions. Click on the + to add <b>an action</b> and add the data operation of <b>Filter Array</b>. Using the Filter Array click on choose a value and put in our status value then click on is "not equal to” and enter in the word “Reorder”. Now here's where the magic happens just simply click on <b>edit in advanced mode</b> and copy the expression that you see there.
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/9f6abbed-1852-47b3-acf4-dedd3ec3529b)
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/6a204117-92ef-4653-800e-fed8175f50f1)
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/03cb5585-7223-4ba1-9845-721503250e65)
+
+
+
+We go back into our trigger settings, and we paste that expression. Now this trigger will not fire if it finds that the status is already at reorder which will stop our loop from happening. <i>You can now get rid of the Filter Array. We could also use the Filter Array somewhere down below if we wanted to filter out the output that we had from the Compose data operation where we wanted to just find the city of Tokyo for instance.</i>
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/7e19c5e3-57db-4090-9583-44ce2c08021a)
 
 We then save our flow, and we go into our list. When we change any of these items to an amount less than five, and its status does not equal reorder, our flow will start. 
 
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/06a8e7d1-548a-41b5-b4a3-f6e2771b6872)
+
 Let's look at the email that comes from our flow.
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/d6d3474b-635b-489b-af43-4b233b1772c8)
 
 It looks like it was very successful it put the word city in a comma and a space for each one of the items that was in our array in the Compose data operation.
 
-So, to sum it up, data operations are a great way to manipulate our data. Compose can take an array of terms and create an output item we can use later on. Join can take an array item and join them together with a different character, symbol, or words. And a Filter Array is not only a secret weapon that helps us to write expressions, but it can also filter items out of a whole array of information. 
+So, to sum it up, data operations are a great way to manipulate our data. Compose can take an array of terms and create an output item we can use later on. Join can take an array item and join them together with a different character, symbol, or words. And a Filter Array is not only a secret weapon that helps us to write expressions, but it can also filter items out of a whole array of information.
+
 ### Modifying Your Flow
 
+Let’s look at modifying your flow. You've now built your own flow and you find that something could be added, or something could be taken away, or maybe you just want to make things run a little smoother. In order to add extra actions to a flow you always look for the place that says <b> “add an action”</b>. That can be found between actions and within an action. 
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/1ca6f0a4-04fc-4fee-b0e1-24ec573cf8f8)
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/f845b79e-f40b-49de-9773-f313c24d9075)
+
+
+When we click on add an action, and put in SharePoint, notice that there are actions and triggers. Things like <b>controls</b> only have actions and do not have triggers. You might find yourself adding a lot to your flow if you started with a template. Sometimes 3/4 of the template works just great but you need to change 1/4 of it. So, lengthening it with more steps can be part of that change.
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/fae8f7a6-6858-4cc5-9973-e5d02e4f330a)
+
+
+Another way we can modify our flow is by changing actions that already exist. There are a lot of things that can be changed on an action and, depending on the action itself, there are multiple advanced options or different settings for that action. Many times, when we are using connections to SharePoint, there is one important piece in the <b>advanced options</b> that really helps out.
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/7aec4605-ca9c-42f7-8a4d-3a0b58e26e98)
+
+When we turn on advanced options, you'll notice a new field comes into play called <b>“limit columns by view”</b>. Some of our SharePoint lists are very long and to be able to grab all the data from a SharePoint list is either cumbersome or it just fails. This advanced option helps us to gather just what we need by using a view that you've already created in your list to bring in only the things you want to change. For instance, if I'm only changing the status value, the manufacturer, and model, then I would create a view that only includes those things. That will make your flow much faster and more efficient. Other fields may come in because they are required but it does cut down a lot of our data management. 
+
+Another good way to change your actions is to rename them. In this course we mostly looked at flows that were not very long. I have some flows that have over 100 different actions in them. If I don't rename each action to mean something to me, I can easily lose my place in what things are doing and why they are where they are. By clicking on the ellipse menu, we can choose to rename the action.
+
+One other item that we can use to change, or update our flows is very helpful and you may have seen me do it earlier. When you click on the ellipse menu for an action you can choose to “copy to my clipboard”. That allows you to bring this back into another action or another step with all the information already pre-configured for you. That only stays in your clipboard while active in this session. You can copy an action from one flow to another, but it has to be done in the same online session.
+
+By now you should be noticing the flexibility in our power automate environment. Changes can be made at any point in our flow. Then by testing we can find other areas that might need more efficiency or corrections as we go forward. 
