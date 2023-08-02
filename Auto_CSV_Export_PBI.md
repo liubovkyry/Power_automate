@@ -63,4 +63,6 @@ The names of colums are changed:
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5bfcd437-dd12-4357-94f0-e83077cfc9d7)
 
-
+## Retrieve query with Performance Analyzer
+<!-- https://www.youtube.com/watch?v=WsbIXJDhC_o&list=PLDz00l_jz6zze26MVT-0YV7qcjismMFFo&index=2 -->
+<!-- Run PA, Click Dataset Refresh, When analyzing is done open name of desired visual - down click on copy query - compare with actual data selected and all filters applied -->
