@@ -17,7 +17,7 @@ Next. Add a new step - we are looking for Power BI here.
 There are several option to choose for the cloud flow.
 Some options (like export to file) there work only for Premium Capacity, so we select <b>Run a query against a dataset</b>
 
- Defining which dataset we want to run a query against - selecting workspace, datset and query. Hit Save.
+ Defining which dataset we want to run a query against - selecting workspace, datset and query. Syntax for query starts with "DEFINE VAR ... EVALUATE VAR.." Hit Save.
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/06cd4910-2408-4e4d-80ce-818e5b6768da)
 
 
@@ -39,7 +39,28 @@ Save. Can test it - run manually.
 We can update table in a flow  by using DAX in Power automate and include filters if needed.
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/38873f5e-4a92-45a9-aec5-5ae1a0c793d5)
 
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/b940266c-cea2-4c03-b74e-44960009fdd1)
+
+## Change column names when exporting data from Power BI 
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/078ce70e-22df-43bb-a2ae-09d4708ff416)
+
+Can add a step in between of our flow:
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/49ed4105-2896-4acc-bff4-8fd1a23b2411)
 
 
+Map the Name we want to give with actual one by adding expression:
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/d1f5c97c-6070-49b7-a2ad-2b05bad14fef)
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5cffb583-0ccb-46b1-982f-476f191248b0)
+
+If we do this we have to move to our next step and change the CSV to the Output:
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/218975d0-8268-442f-9140-297a82751995)
+
+The names of colums are changed:
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5bfcd437-dd12-4357-94f0-e83077cfc9d7)
 
 
