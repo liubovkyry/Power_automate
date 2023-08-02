@@ -24,15 +24,25 @@
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/69f2a12f-6574-47a9-9755-1d300de07916)
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/edac68c1-8d9e-4448-a457-fd7c07aa6d32)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/0de9d28c-5733-4f5e-8052-08950acccd3c)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/6f0a8643-a52c-4ecb-941a-2ca83fc8a045)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/8e56e0ee-e7b0-4544-b778-778e331c2f2d)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/4e4f3159-15c3-4cc8-a64e-c1e89d8176d2)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/8be3263e-828b-4c50-b96a-8d7bd9f4cbc8)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/3fe86f6c-e95f-42c9-b9bf-4ca15e29393e)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/f951d6d1-92d5-4426-a3cd-584802dadbe6)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/1c6bfe35-1eb8-48f6-a74d-dbd9cb39f3f8)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/043148fa-ee7f-4f80-a178-a7e23d39d399)
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/a0592e76-ca52-4c1d-86d9-1554ad7a3a0e)
 
 
@@ -49,7 +59,7 @@ Data operations are a way to manipulate our data in flows. We will look at three
 
 I’m going to show you these by creating a flow that watches for changes to our SharePoint list.<i> When the amount in stock reaches below 5 items, we want to change the status to “Reorder”, and get an email telling us to reorder the item in any or all cities affected.</i> Let’s see what that might look like. 
 
-First of all we create <b>an automated cloud flow</b>. We search for triggers by <b>SharePoint<b/> And find the trigger for when an item is created or modified. Make sure that you choose the one that says item instead of file. Files that are modified refer to document libraries not lists. And we give this flow a name. We then click on create.
+First of all we create <b>an automated cloud flow</b>. We search for triggers by <b>SharePoint</b> And find the trigger for when an item is created or modified. Make sure that you choose the one that says item instead of file. Files that are modified refer to document libraries not lists. And we give this flow a name. We then click on create.
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/dc8566e6-cb13-4776-8aac-94a0405ecc51)
 
 We go ahead and add our site address and our list name to the trigger. We are going to add a new step and we will search for connectors and actions with word data. Choose data operation and you will see the different data operation actions available. Let's go ahead and choose the <b>Compose data</b> operation.
@@ -63,7 +73,11 @@ Compose lets us put in an array of items that we can use in a dynamic content ca
 We do that by choosing the dynamic content that's called <b>outputs</b> right under the Compose item. We then put in the formatting that we want to Join each of those items with so remember in our Compose we have a list of cities. They only have a comma between them. When I finally output these, <i>I want them to come out as the name of the city, and then the word<b> “city” </b>after them, followed by a comma.</i> Don't forget to lead off with a space. Anything you type we'll end up here even if it's a hidden character like a space. 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/eb581464-ef7b-446e-88f8-078b50e2ea87)
 
-Our next step is to add a <b>condition control</b> which we worked with earlier on. We're going to put in the condition control with a condition of the amount in stock being less than five. Going down the yes path we will put in an update item. We must put in our site address our list name an ID and a title. Everything else should be left empty except for the thing that you want to update. I'm going to update my status value to “Reorder”.
+Our next step is to add a <b>condition control</b> which we worked with earlier on. We're going to put in the condition control with a condition of the <b>amount in stock</b> being less than five. Going down the yes path we will put in an <b>update item</b>. We must put in our site address our list name an ID and a title. Everything else should be left empty except for the thing that you want to update. I'm going to update my status value to “Reorder”.
+
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/156fed73-8935-4f30-aa77-3e87fd2164f9)
+
 
 I then add an action to send an email with the subject of reorder items. In the body, using dynamic content, we say the following locations need manufacturers name and then model reordered. Underneath that I'm going to put the output from the Join command. Make sure you're using the right output and not using the one from the Compose like we did earlier.
 
