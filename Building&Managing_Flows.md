@@ -72,7 +72,7 @@ We go ahead and add our site address and our list name to the trigger. We are go
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/d2aa4b08-5b21-45f2-8a0a-9e2592769368)
 
 
-Compose lets us put in an array of items that we can use in a dynamic content called, output at a later step. So, I'm going to add an array of cities. Next, we will add a new step and this time we'll add the <b>data operations<b/> action for Join. We have two boxes to fill in here first, it wants to know where we are bringing the information from and we're going to bring that from our Compose action that we already did.
+Compose lets us put in an array of items that we can use in a dynamic content called, output at a later step. So, I'm going to add an array of cities. Next, we will add a new step and this time we'll add the <b>data operations</b> action for Join. We have two boxes to fill in here first, it wants to know where we are bringing the information from and we're going to bring that from our Compose action that we already did.
 
 We do that by choosing the dynamic content that's called <b>outputs</b> right under the Compose item. We then put in the formatting that we want to Join each of those items with so remember in our Compose we have a list of cities. They only have a comma between them. When I finally output these, <i>I want them to come out as the name of the city, and then the word<b> “city” </b>after them, followed by a comma.</i> Don't forget to lead off with a space. Anything you type we'll end up here even if it's a hidden character like a space. 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/eb581464-ef7b-446e-88f8-078b50e2ea87)
