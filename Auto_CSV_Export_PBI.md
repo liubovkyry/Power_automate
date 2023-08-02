@@ -41,6 +41,8 @@ We can update table in a flow  by using DAX in Power automate and include filter
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/b940266c-cea2-4c03-b74e-44960009fdd1)
 
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/321aac04-0967-4eb0-9e8d-4b026f4bf2eb)
+
 ## Change column names when exporting data from Power BI 
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/078ce70e-22df-43bb-a2ae-09d4708ff416)
