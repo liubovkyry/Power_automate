@@ -2,6 +2,58 @@
 
 ### Building Your Flow
 
+You’ve now learned enough that we’re going to build your own flow. In one of our first lectures, we talked about how to start flows with a button, automated, or scheduled.
+
+If starting with a Button, it could look like this on my mobile device. I click to find out the weather and I am prompted to select the date. It then displays the weather for me for the location that I put into the flow. Let’s build this flow.
+
+ - Let’s start with an instant flow which gives us our button. Give it a name and select Manually trigger a flow.
+ - Click on the manually trigger a flow. Notice you could put in a request for input of different types.
+ - Click on New step.
+ - Choose MSN weather, Get today’s weather.
+ - Add your location.
+ - Click on New step.
+ - Choose to send email V2.
+ - Fill in who to send it to.
+ - In the subject let’s mix in some dynamic content for the location.
+ - We then fill in the body with text and dynamic content from the actions above.
+ - I am adding a location, a day summary, and a night summary.
+ - Save the flow.
+ - Go back one step.
+ - From here we can click on Run. The first time running, it will get your permissions lined up. When the green checks are in place, you are good to go. Click continue.
+ - Then run flow.
+We should get an email that looks like this.
+
+To see this same flow in a Scheduled cloud flow, we need to start a scheduled flow. First, I’m going to save some steps to my clipboard to use in our new flow.
+
+ - Fill in the name and choose when you want to start the first instance of the flow. Let’s repeat it every day.
+ - We click Create to see our new flow.
+ - We add a new step from the clipboard and choose the forecast. Fill in the location.
+ - We then add a new step for the email and bring it from our clipboard.
+ - We then save the flow, and it will just run every day. It’s that simple.
+ - Our last flow is an Automated flow. We will build a Twitter flow to retweet any tweet that includes the hashtag #cloudacademy.
+
+Go to create and choose Automated cloud flow.
+ - We name our file and then choose a trigger. Remember the name is not required at this stage but the trigger is.
+ - Type in Twitter to see the When a new tweet is posted trigger and choose it. Then create.
+ - In the search text we can put our hashtag, and anything that might be from cloudacademy.
+ - Add a new step. Search for twitter. This time we see many actions.
+ - Choose Get user. Fill in the Username with the dynamic content of the same.
+ - Add a new step, search for variable, and choose Initialize variable.
+ - Change the name to TweetCount and Type to Integer since this will be a number. I then set the initial number to 0. Twitter doesn’t like you automatically tweeting too many tweets in a day, so I am going to limit the number of times this flow runs.
+ - Now we add a condition where the TweetCount variable is less than or equal to 10. This will be true for ten retweets then it will go to the NO side of the condition.
+ - On the Yes side, add the Twitter action of Retweet.
+  - In Tweet id, we will put the dynamic content of Tweet id.
+ - I want to give credit to the user so I’m going to leave the option on no for Trim user.
+ - Now we add another variable action called Increment variable.
+ - We choose the name of our initialized variable, TweetCount.
+ - And then enter the value of 1. Each time it retweets, it will add a 1.
+ - Last step for the Yes branch of our control is another control called Terminate which will end the run. We will change the Status to Succeeded.
+ - On the No branch, we add another variable called set variable. We have reached our limit of 10 if it comes down this No branch, so we are going to reset it back to 0.
+ - So we pick our variable of TweetCount and set the value to 0.
+Now, this would not stop it from posting again in the same day so we will add a delay which will wait to run this again for 1 day.
+So we find the Delay action and put 1 as the count, and Day as the unit.
+We save and we now can sit back and have our Twitter account tweet about information we are interested in.
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/4df2525a-c251-4b4b-b6b9-809abcdf3109)
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/338a39a3-017c-477d-a4cc-edc6794d5a21)
@@ -139,5 +191,7 @@ When we turn on advanced options, you'll notice a new field comes into play call
 Another good way to change your actions is to rename them. In this course we mostly looked at flows that were not very long. I have some flows that have over 100 different actions in them. If I don't rename each action to mean something to me, I can easily lose my place in what things are doing and why they are where they are. By clicking on the ellipse menu, we can choose to rename the action.
 
 One other item that we can use to change, or update our flows is very helpful and you may have seen me do it earlier. When you click on the ellipse menu for an action you can choose to “copy to my clipboard”. That allows you to bring this back into another action or another step with all the information already pre-configured for you. That only stays in your clipboard while active in this session. You can copy an action from one flow to another, but it has to be done in the same online session.
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/353c5ea4-b3d7-4a2b-b365-b784d8e4d5c8)
 
 By now you should be noticing the flexibility in our power automate environment. Changes can be made at any point in our flow. Then by testing we can find other areas that might need more efficiency or corrections as we go forward. 
