@@ -21,7 +21,7 @@ Some options (like export to file) there work only for Premium Capacity, so we s
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/06cd4910-2408-4e4d-80ce-818e5b6768da)
 
 
-In the next step <b>creating a CSV file</b>, based on a <b>First table rows</b> - 
+In the next step -Add Data operation -  <b>creating a CSV file</b>, based on a <b>First table rows</b> - 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/a81a5550-5d0e-4fd8-a8ce-54e6a8b10171)
 
 
