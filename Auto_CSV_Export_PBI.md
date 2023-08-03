@@ -65,6 +65,15 @@ The names of colums are changed:
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5bfcd437-dd12-4357-94f0-e83077cfc9d7)
 
-## Retrieve query with Performance Analyzer
-<!-- https://www.youtube.com/watch?v=WsbIXJDhC_o&list=PLDz00l_jz6zze26MVT-0YV7qcjismMFFo&index=2 -->
+## Creating the DAX Query to extract the data
+NOTE: The limitation is 100,000 rows or 1 Million Values, which ever comes first
+<!-- https://www.youtube.com/watch?v=WsbIXJDhC_o&list=PLDz00l_jz6zze26MVT-0YV7qcjismMFFo&index=2 
+https://www.fourmoo.com/2022/06/15/exporting-a-power-bi-visual-data-to-a-csv-file-in-sharepoint/
+-->
 <!-- Run PA, Click Dataset Refresh, When analyzing is done open name of desired visual - down click on copy query - compare with actual data selected and all filters applied -->
+
+I will use the Performance Analyzer built into Power BI desktop to get the query I need.
+
+I click on View in the ribbon and then clicked on Performance analyzer.
+Then in the visual I clicked on the “Analyze this visual” which would then refresh the visual.
+Next, in the Performance analyzer window I expanded the “VisualName” where I could then see the option to <b>Copy query</b>.
