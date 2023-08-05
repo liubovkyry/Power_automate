@@ -60,12 +60,6 @@ Lastly, the file content will be the Output.
 
 Save. Can test it - run manually.
 
-We can update table in a flow  by using DAX in Power automate and include filters if needed.
-![image](https://github.com/liubovkyry/Power_automate/assets/118057504/38873f5e-4a92-45a9-aec5-5ae1a0c793d5)
-
-![image](https://github.com/liubovkyry/Power_automate/assets/118057504/b940266c-cea2-4c03-b74e-44960009fdd1)
-
-![image](https://github.com/liubovkyry/Power_automate/assets/118057504/321aac04-0967-4eb0-9e8d-4b026f4bf2eb)
 
 ## Change column names when exporting data from Power BI 
 
