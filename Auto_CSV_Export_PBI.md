@@ -1,23 +1,47 @@
 ## Schedule Exports from Power BI AUTOMATICALLY 
 <!-- https://www.youtube.com/watch?v=ZTkbC8zhA5k -->
-### Power Automate to SharePoint Folder Data Exporting
+
 
 How to set up scheduled export from PBI avoiding 1000 row limit using Power Automate.
 
 Let's say task was to extract tables from PBI report on monthly basis for own reporting purposes. Report is build and already had been published on PBI Service. We need different column from different tables.
+
+The first step is to either write or create the DAX query which will be used to extract the data into a CSV.
+
+### Creating the DAX Query to extract the data
+NOTE: The limitation is 100,000 rows or 1 Million Values, which ever comes first
+<!-- https://www.youtube.com/watch?v=WsbIXJDhC_o&list=PLDz00l_jz6zze26MVT-0YV7qcjismMFFo&index=2 
+https://www.fourmoo.com/2022/06/15/exporting-a-power-bi-visual-data-to-a-csv-file-in-sharepoint/
+-->
+<!-- Run PA, Click Dataset Refresh, When analyzing is done open name of desired visual - down click on copy query - compare with actual data selected and all filters applied -->
+
+I will use the Performance Analyzer built into Power BI desktop to get the query I need.
+
+ - I click on View in the ribbon and then clicked on Performance analyzer.
+ - Then in the visual I clicked on the “Analyze this visual” which would then refresh the visual.
+ - Next, in the Performance analyzer window I expanded the “VisualName” where I could then see the option to <b>Copy query</b>.
+ - I then copied this query to my notepad. This allowed me to get the DAX I required without having to write any DAX.
+
+### Power Automate to SharePoint Folder Data Exporting
+
+Before I started the Power Automate flow, I made sure that I had access to a SharePoint site and folder where I wanted to extract the data to.
 
 Start by creating New <b>Scheduled Cloud Flow</b> in Power Automate.
 
 Name your export. Set time and frequency of exporting. Create.
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/67bbdd05-5598-4138-9c9d-e6ea05604a0f)
 
-Next. Add a new step - we are looking for Power BI here. 
+Next is where I now wanted to extract the data from my Power BI report/dataset into the CSV file.
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/198c5546-fe7b-486d-989f-1c1597dcb2fe)
 
 There are several option to choose for the cloud flow.
 Some options (like export to file) there work only for Premium Capacity, so we select <b>Run a query against a dataset</b>
 
- Defining which dataset we want to run a query against - selecting workspace, datset and query. Syntax for query starts with "DEFINE VAR ... EVALUATE VAR.." Hit Save.
+ Defining which dataset we want to run a query against - selecting workspace, datset and query.
+
+ Now, in the Query text I copied my DAX query I had copied earlier from the Performance analyzer.
+ Syntax for query starts with "DEFINE VAR ... EVALUATE VAR.." 
+ Hit Save.
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/06cd4910-2408-4e4d-80ce-818e5b6768da)
 
 
@@ -47,7 +71,7 @@ We can update table in a flow  by using DAX in Power automate and include filter
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/078ce70e-22df-43bb-a2ae-09d4708ff416)
 
-Can add a step in between of our flow:
+Can add a step in between of our flow, add new step <b>Select</b>
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/49ed4105-2896-4acc-bff4-8fd1a23b2411)
 
@@ -65,15 +89,4 @@ The names of colums are changed:
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5bfcd437-dd12-4357-94f0-e83077cfc9d7)
 
-## Creating the DAX Query to extract the data
-NOTE: The limitation is 100,000 rows or 1 Million Values, which ever comes first
-<!-- https://www.youtube.com/watch?v=WsbIXJDhC_o&list=PLDz00l_jz6zze26MVT-0YV7qcjismMFFo&index=2 
-https://www.fourmoo.com/2022/06/15/exporting-a-power-bi-visual-data-to-a-csv-file-in-sharepoint/
--->
-<!-- Run PA, Click Dataset Refresh, When analyzing is done open name of desired visual - down click on copy query - compare with actual data selected and all filters applied -->
 
-I will use the Performance Analyzer built into Power BI desktop to get the query I need.
-
-I click on View in the ribbon and then clicked on Performance analyzer.
-Then in the visual I clicked on the “Analyze this visual” which would then refresh the visual.
-Next, in the Performance analyzer window I expanded the “VisualName” where I could then see the option to <b>Copy query</b>.
