@@ -51,7 +51,7 @@ In the next step -Add Data operation -  <b>creating a CSV file</b>, based on a <
 
 Then we create a step defining where to save our - <b>Create a file - SharePoint</b>
 
-Note: What happens every week when file is extracted - it overwrites previous one if name is the same. We can add an expression <code>utcNow</code> to the name, so each extraction will have name with current date included. 
+Note: What happens every week when file is extracted - it overwrites previous one if name is the same. We can add an expression <code>utcNow</code> to the name, so each extraction will have name with current date included or Expression <code> formatDateTime(utcNow(),’MM-dd-yyyy’) </code> for short date format.
 
 That will make sure that file name always different.
 Lastly, the file content will be the Output. 
