@@ -70,7 +70,8 @@ Can add a step in between of our flow, add new step <b>Select</b>
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/49ed4105-2896-4acc-bff4-8fd1a23b2411)
 
 
-Map the Name we want to give with actual one by adding expression:
+Map the Name we want to give (Enter key is where you enter desired name for column) with actual one by adding the expression:
+
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/d1f5c97c-6070-49b7-a2ad-2b05bad14fef)
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5cffb583-0ccb-46b1-982f-476f191248b0)
