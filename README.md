@@ -1,4 +1,4 @@
-# Introductio to Power automate
+# Introduction to Power automate
 Objectives will include:
 
  * Describing the different types of flows
