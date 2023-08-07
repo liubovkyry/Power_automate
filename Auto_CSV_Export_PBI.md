@@ -21,6 +21,7 @@ I will use the Performance Analyzer built into Power BI desktop to get the query
  - Then in the visual I clicked on the “Analyze this visual” which would then refresh the visual.
  - Next, in the Performance analyzer window I expanded the “VisualName” where I could then see the option to <b>Copy query</b>.
  - I then copied this query to my notepad. This allowed me to get the DAX I required without having to write any DAX.
+ -  <b> Note: </b> Remove from query VAR __DS0PrimaryWindowed and Evaluate VAR __DS0Core instead.
 
 ### Power Automate to SharePoint Folder Data Exporting
 
