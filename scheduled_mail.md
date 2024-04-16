@@ -38,13 +38,13 @@ For this scenario, you’ll need to make an Excel file with a table that contain
  - Select First Name from the dynamic content pane.
  - Press ENTER and then type Thank you for your interest in Contoso's annual event. As information becomes available, you'll be the first to know!
  - The Send an email step should now look like the image below.
- - Select Save and wait for the flow to be saved.
-
- - Your cloud flow should now look like the image below. Select Test.
 
 
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/896c5c38-7772-4eb7-a2ab-a4da0538d7b4)
 
+ - Select Save and wait for the flow to be saved.
+ - Your cloud flow should now look like the image below. Select Test.
+   
 
 ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/d2ef47bb-0215-45be-9ccc-406a6dc7886e)
