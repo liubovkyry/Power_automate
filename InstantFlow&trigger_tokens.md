@@ -28,3 +28,20 @@ The Power Automate mobile app for Android or iOS.
  - Now we switch to Power Automate mobile to edit and run the flow.
  - Open the Power Automate mobile app and sign in with your organizational credentials.
  - ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/c2f3481c-fad7-493e-bad5-c4e005acf836)
+ - Select the three dots next to the flow name and select Edit.
+ - Once the flow opens and you can see the actions, select the Apply to Each action and then select the Send an Email action that's inside of the Apply to Each. The Send an email action expands to show options to configure the email.
+ - Select the Subject field, and enter WFH today. Notice that when you selected the Subject field, a list of tokens appeared below. While the cursor is still in the Subject field, scroll down until you see the Date field at the bottom in blue and select it. Notice that the date token now appears in the Subject field.
+
+   ![image](https://github.com/liubovkyry/Power_automate/assets/118057504/5fdc32bc-32de-4c14-88bb-dbd76072c717)
+ - Scroll to the Body field and select the default message so that you can add tokens there.
+ - Scroll down to find the Full Address token and select it. The Full Address token is now in the body of the email.
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/8e729217-fb39-445d-b57a-51ef5e4a0f7c)
+
+ - Scroll down to the bottom of the flow and select Save.
+ - You should receive a message that says Flow edited successfully.
+
+### Run the Instant flow
+
+![image](https://github.com/liubovkyry/Power_automate/assets/118057504/e3b7f2aa-e086-44af-802e-8bdad9a61242)
+
